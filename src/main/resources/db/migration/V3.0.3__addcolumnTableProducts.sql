@@ -1,0 +1,2 @@
+ALTER TABLE products
+ADD COLUMN numberProducts INT DEFAULT 50;
