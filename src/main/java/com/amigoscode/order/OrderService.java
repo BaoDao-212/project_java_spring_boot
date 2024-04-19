@@ -20,12 +20,15 @@ public class OrderService {
     private final ProductDao productRepository;
    
     // methods change password
-    public String createOrder( Principal connectedUser, OrderRequest request) throws SQLException {
+    public String createOrder( Principal connectedUser, OrderRequest[] request) throws SQLException {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
-        var productId= request.getProductId();
-        var product = productRepository.findProductById(productId);
-        if(product==null){
-            throw new IllegalStateException("Product not found");
+        for (OrderRequest orderRequest : request) {
+            
+            var productId= orderRequest.getProductId();
+            var product = productRepository.findProductById(productId);
+            if(product==null){
+                throw new IllegalStateException("Product not found");
+            }
         }
         var data= repository.createOrder(request, user.getId());
         return "Created order successfully!";

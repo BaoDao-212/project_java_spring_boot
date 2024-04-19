@@ -20,10 +20,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequestMapping("/api/order")
 @RequiredArgsConstructor
 public class OrderController {
-
     private final OrderService orderService;
     @PostMapping("/create")
-    public ApiResponse<String> createOrder(Principal user, @RequestBody OrderRequest request) throws SQLException {
+    public ApiResponse<String> createOrder(Principal user, @RequestBody OrderRequest[] request) throws SQLException {
         return new ApiResponse(1000,null, orderService.createOrder(user,request));
     }
 }

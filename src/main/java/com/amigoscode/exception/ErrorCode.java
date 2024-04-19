@@ -10,7 +10,18 @@ public enum  ErrorCode {
     UNAUTHORIED(1004, "The user is unauthorized!", HttpStatus.UNAUTHORIZED),
     INTERNAL_SERVER_ERROR (1005, "An internal server error occurred!", HttpStatus.INTERNAL_SERVER_ERROR),
     INVALID_ARGUMENT (1006, "The argument is invalid!", HttpStatus.BAD_REQUEST),
-    UNCATEGORIZED_EXCEPTION (9999, "An uncategorized exception occurred!", HttpStatus.INTERNAL_SERVER_ERROR);
+    UNCATEGORIZED_EXCEPTION (9999, "An uncategorized exception occurred!", HttpStatus.INTERNAL_SERVER_ERROR),
+    // order item
+    ORDER_ITEM_NOT_FOUND(2001, "The order item is not found!", HttpStatus.NOT_FOUND),
+    // order
+    ORDER_NOT_FOUND(2002, "The order is not found!", HttpStatus.NOT_FOUND),
+    // product
+    PRODUCT_NOT_FOUND(3001, "The product is not found!", HttpStatus.NOT_FOUND),
+    PRODUCT_QUANTITY_NOT_ENOUGH (3002, "The product quantity is not enough!", HttpStatus.BAD_REQUEST),
+    // category
+    CATEGORY_NOT_FOUND(4001, "The category is not found!", HttpStatus.NOT_FOUND),
+    // user
+    USER_ALREADY_EXISTS(5001, "The user already exists!", HttpStatus.BAD_REQUEST);
     // Getters and setters omitted for brevity
 
     private int code;
